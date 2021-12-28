@@ -1,0 +1,44 @@
+version: '3.4'
+
+services:
+  CatalogDb:
+    image: mongo
+  RedisDb:
+    image: redis
+  DiscountDb:
+    image: postgres:9.4
+  Pgadmin:
+    image: dpage/pgadmin4
+
+
+  catalog.api:
+    image: ${DOCKER_REGISTRY-}catalogapi
+    build:
+      context: .
+      dockerfile: Services/Catalog/Catalog.Api/Dockerfile
+  
+  basket.api:
+    image: ${DOCKER_REGISTRY-}basketapi
+    build:
+      context: .
+      dockerfile: Services/Basket/Basket.Api/Dockerfile
+
+  discount.api:
+    image: ${DOCKER_REGISTRY-}discountapi
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Api/Dockerfile
+
+  discount.grpc:
+    image: ${DOCKER_REGISTRY-}discountgrpc
+    build:
+      context: .
+      dockerfile: Services/Discount/Discount.Grpc/Dockerfile
+
+volumes:
+  mongo_data:
+  postgres_data:
+  pgadmin_data:
+   
+
+

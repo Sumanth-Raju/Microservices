@@ -1,0 +1,60 @@
+﻿1st //CREATE ENTITY
+create entity assing bson id for the class
+then
+
+
+2nd //CREATE DOCKER MONGO DB AND INSERT DATA
+exe in cmd -- >  docker pull mongo
+
+docker run -d -p 27017:27017 --name aspmongo mongo
+
+to enter interactive terminal --> docker exec -it aspmongo /bin/bash
+
+inside this you can exec various commands like 
+
+ls
+
+
+in order to insert data inside the database type ""mongo""
+
+show dbs  --> it shows database inside mongo
+//create a CatalogDb --> Products[table]
+
+then enter "use CatalogDb" --> creates new database
+db.createCollection("Products")
+add products inside products table ==>
+
+db.Products.insertMany([{
+"Name": "Apple",
+"Catagory": "Mobile",
+"Summary": "Apple mobile",
+"Description": ".....",
+"ImageFile": "Image",
+"Price": 54.93
+},
+
+{
+"Name": "Samsung",
+"Catagory": "Mobile",
+"Summary": "samsung mobile",
+"Description": ".....",
+"ImageFile": "Image",
+"Price": 44.33
+}])
+
+
+3rd  // SPECIFY CONNECTIONSTRINGS IN APPSETTINGS 
+  "CatalogdbSettings": {
+    "ConnectionString": "mongodb://localhost:27017",
+    "DatabaseName": "CatalogDb",
+    "CollectionName":"Products"
+  },
+
+
+ 4TH // CRAETE A CONTEXT CLASS WHICH CONTAINS IMONGO COLLECTION OF PRODUCTS AND SEED DATA IF NOT PRESENT
+ INSERT ALL THE CONNECTION STRING TO MONGO CLIENT
+
+ 5th // CREATE A REPOSITORY CLASS
+
+ 6TH // CONTROLLER
+

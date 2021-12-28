@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\src",
+    "\\src\\Services",
+    "\\src\\Services\\Discount",
+    "\\src\\Services\\Discount\\Discount.Grpc",
+    "\\src\\Services\\Discount\\Discount.Grpc\\Services"
+  ],
+  "SelectedNode": "\\src\\Services\\Discount\\Discount.Grpc\\Services\\DiscountService.cs",
+  "PreviewInSolutionExplorer": false
+}
